@@ -1,12 +1,84 @@
-.form-group
-  label(for="title") Title
-  input.form-control(type="text", name="title", placeholder="What's your question?", value=question.title)
-.form-group
-  label(for="question") Question
-  textarea.form-control(name="content", rows="5")= question.content
-.form-group
-  label(for="tags") Tags
-  input.form-control(type="text", name="tags", placeholder="tags separated by spaces", value=question.tags ? question.tags.join(" ") : "")
-.form-group
-  label(for='img') Image
-  input.form-control(type="file", name="img")
+.container
+  fieldset
+  legend 필수 정보 입력
+  .form-group1
+    .form-group
+      label.col-sm-3.control-label(for="title") 파티명
+      .col-sm-9
+        input.form-control(type="text", name="title", placeholder="What's your Partys?", value=question.title)
+
+    .form-group
+      label.col-sm-3.control-label(for="location") 장소
+      .col-sm-9
+        input.form-control(type="text", name="location", placeholder="What's your location?", value=question.location)
+
+    .form-group
+      .group-label
+        label.col-sm-3.control-label(for='expiry-month') 시작 날짜
+        .col-sm-3
+          input.form-control(type="date", name="start_at", value=question.start_at)
+
+    .form-group
+      .group-label2
+        label.col-sm-3.control-label(for='expiry-month2') 종료 날짜
+        .col-sm-3
+          input.form-control(type="date", name="end_at", value=question.end_at)
+
+    .form-group
+      label.col-sm-3.control-label(for="content") 상세 설명
+      .col-sm-9
+        textarea.form-control(name="content", rows="5")= question.content
+
+    .form-group
+      label.col-sm-3.control-label(for="group_name") 주최 조직명
+      .col-sm-9
+        input.form-control(type="text", name="group_name", value=question.group_name)
+
+    .form-group
+      label.col-sm-3.control-label(for="group_explain") 주최 조직 설명
+      .col-sm-9
+        input.form-control(type="text", name="group_explain", value=question.group_explain)
+
+.container
+  fieldset
+  legend 추가 정보 입력
+  .form-group2
+    .form-group
+      label.col-sm-5.control-label(for="eventTopic") 파티 종류
+      .col-sm-5
+        select#event-tymenu.form-control(name='eventType')
+            option 파티 종류를 선택하세요
+            option(value='indoor party') indoor party
+            option(value='outdoor party') outdoor party
+
+    .form-group
+      label.col-sm-5.control-label(for="eventTopic") 파티 분야
+      .col-sm-5
+          select#event-tomenu.form-control(name='eventTopic')
+              option 파티 분야를 선택하세요
+              option home
+              option cruise
+              option community
+              option sports
+              option games
+              option languages
+              option food
+              option music
+
+    .form-group
+      label.col-sm-5.control-label(for="event_price") 티켓 종류
+      .col-sm-5
+        .form-check.form-check-inline
+          .form-check-label
+            input.eventprice.form-check-input(type="radio", name="event_price", value="event-free")
+            |  무료
+
+        .form-check.form-check-inline
+          .form-check-label
+            input.eventprice.form-check-input(type="radio", name="event_price", value="event-paid")
+            |  유료
+
+    .form-group
+      label.col-sm-3.control-label(for="price") 티켓 가격
+      .col-sm-3
+        input.form-control(type="text", name="price", value=question.price)
