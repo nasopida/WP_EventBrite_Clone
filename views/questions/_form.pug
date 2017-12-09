@@ -27,7 +27,7 @@
     .form-group
       label.col-sm-3.control-label(for="content") 상세 설명
       .col-sm-9
-        textarea.form-control(name="content", rows="5")= question.content
+        textarea.form-control(name="content")= question.content
 
     .form-group
       label.col-sm-3.control-label(for="group_name") 주최 조직명
@@ -77,8 +77,5 @@
           .form-check-label
             input.eventprice.form-check-input(type="radio", name="event_price", value="event-paid")
             |  유료
-
-    .form-group
-      label.col-sm-3.control-label(for="price") 티켓 가격
-      .col-sm-3
-        input.form-control(type="text", name="price", value=question.price)
+        span
+          input.form-control(type="text", name="price",placeholder="Enter the ticket price", value=question.price)
