@@ -35,7 +35,7 @@ module.exports = (app, io) => {
   mongoose.Promise = global.Promise; // ES6 Native Promise를 mongoose에서 사용한다.
   const connStr = 'mongodb://localhost/mjdb4';
   // 아래는 mLab을 사용하는 경우의 예: 본인의 접속 String으로 바꾸세요.
-  // const connStr = 'mongodb://dbuser1:mju12345@ds113825.mlab.com:13825/sampledb1';
+  const connStr = 'mongodb://nasopida:123123@ds133296.mlab.com:33296/partydb';
   mongoose.connect(connStr, {useMongoClient: true });
   mongoose.connection.on('error', console.error);
 
@@ -101,7 +101,7 @@ module.exports = (app, io) => {
     success:      (data, accept) => {
       console.log('successful connection to socket.io');
       accept(null, true);
-    }, 
+    },
     fail:         (data, message, error, accept) => {
       // 실패 혹은 로그인 안된 경우
       console.log('failed connection to socket.io:', message);
